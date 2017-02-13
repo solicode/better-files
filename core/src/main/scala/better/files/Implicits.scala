@@ -262,6 +262,9 @@ trait Implicits {
     }
   }
 
+  implicit def stringToCharset(charsetName: String): Charset =
+    Charset.forName(charsetName)
+
   implicit def tokenizerToIterator(s: StringTokenizer): Iterator[String] =
     produce(s.nextToken()).till(s.hasMoreTokens)
 
